@@ -1,5 +1,5 @@
 
-import { useEffect } from "react";
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -57,6 +57,75 @@ const teammembers = [
   }
 ];
 
+
+
+
+// Custom hook for animated counter
+const useCounter = (end, duration = 2000, start = 0) => {
+  const [count, setCount] = useState(start);
+  const [isVisible, setIsVisible] = useState(false);
+  const countRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isVisible) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (countRef.current) {
+      observer.observe(countRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [isVisible]);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    let startTime;
+    let animationFrame;
+
+    const animate = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      
+      // Easing function for smooth animation
+      const easeOut = 1 - Math.pow(1 - progress, 3);
+      const currentCount = Math.floor(easeOut * (end - start) + start);
+      
+      setCount(currentCount);
+
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(animate);
+      }
+    };
+
+    animationFrame = requestAnimationFrame(animate);
+
+    return () => {
+      if (animationFrame) {
+        cancelAnimationFrame(animationFrame);
+      }
+    };
+  }, [isVisible, end, start, duration]);
+
+  return { count, ref: countRef };
+};
+
+// Counter component
+const Counter = ({ end, suffix = '', duration = 2000, className = '' }) => {
+  const { count, ref } = useCounter(end, duration);
+  
+  return (
+    <div ref={ref} className={className}>
+      {count}{suffix}
+    </div>
+  );
+};
 
 
 
@@ -398,34 +467,43 @@ const AboutUs = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-16">
-              <div className="text-center">
-                <div className="text-5xl font-bold text-thrive-blue mb-2">
-                  500+
-                </div>
-                <p className="text-lg text-gray-700 dark:text-gray-300">
-                  Community Members
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="text-5xl font-bold text-thrive-blue mb-2">
-                  50+
-                </div>
-                <p className="text-lg text-gray-700 dark:text-gray-300">
-                  Active Mentors
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="text-5xl font-bold text-thrive-blue mb-2">
-                  85%
-                </div>
-                <p className="text-lg text-gray-700 dark:text-gray-300">
-                  Member Success Rate
-                </p>
-              </div>
+             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-16">
+            <div className="text-center">
+              <Counter 
+                end={500} 
+                suffix="+"
+                className="text-5xl font-bold text-blue-600 mb-2"
+                duration={2500}
+              />
+              <p className="text-lg text-gray-700 dark:text-gray-300">
+                Community Members
+              </p>
             </div>
+
+            <div className="text-center">
+              <Counter 
+                end={50} 
+                suffix="+"
+                className="text-5xl font-bold text-blue-600 mb-2"
+                duration={2000}
+              />
+              <p className="text-lg text-gray-700 dark:text-gray-300">
+                Active Mentors
+              </p>
+            </div>
+
+            <div className="text-center">
+              <Counter 
+                end={85} 
+                suffix="%"
+                className="text-5xl font-bold text-blue-600 mb-2"
+                duration={2200}
+              />
+              <p className="text-lg text-gray-700 dark:text-gray-300">
+                Member Success Rate
+              </p>
+            </div>
+          </div>
 
             <div className="bg-blue-50 dark:bg-gray-700 p-8 rounded-xl max-w-4xl mx-auto">
               <div className="flex flex-col md:flex-row gap-6">

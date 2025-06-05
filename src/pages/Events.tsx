@@ -1,5 +1,5 @@
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 // import ThemeToggle from "@/components/ThemeToggle";
@@ -10,9 +10,48 @@ import { Calendar, Clock } from "lucide-react";
 import EventNewletter from "@/components/EventNewsletter";
 
 const Events = () => {
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    // Set the target date for the countdown (June 02, 2025 at 10:00 AM)
+    const targetDate = new Date('2025-02-15T10:00:00').getTime();
+
+    const updateCountdown = () => {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+
+      if (difference > 0) {
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        setTimeLeft({ days, hours, minutes, seconds });
+      } else {
+        // Event has passed
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+      }
+    };
+
+    // Update immediately
+    updateCountdown();
+
+    // Update every second
+    const interval = setInterval(updateCountdown, 1000);
+
+    // Cleanup interval on component unmount
+    return () => clearInterval(interval);
+  }, []);
+
 
   const upcomingEvents = [
     {
@@ -123,7 +162,7 @@ const Events = () => {
                   </p>
                   <Button className="bg-thrive-blue hover:bg-blue-700">Register Now</Button>
                 </div>
-                <div className="md:w-1/2">
+                {/* <div className="md:w-1/2">
                   <div className="grid grid-cols-2 gap-4">
                     <div className="bg-white dark:bg-gray-800 rounded-lg p-4 text-center">
                       <div className="text-4xl font-bold text-thrive-blue mb-1">23</div>
@@ -142,7 +181,32 @@ const Events = () => {
                       <div className="text-sm text-gray-500 dark:text-gray-400">Seconds</div>
                     </div>
                   </div>
+                </div> */}
+                <div className="md:w-1/2">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="bg-white rounded-lg p-4 text-center shadow-md">
+                    <div className="text-4xl font-bold text-blue-600 mb-1">{timeLeft.days}</div>
+                    <div className="text-sm text-gray-500">Days</div>
+                  </div>
+                  <div className="bg-white rounded-lg p-4 text-center shadow-md">
+                    <div className="text-4xl font-bold text-blue-600 mb-1">{timeLeft.hours}</div>
+                    <div className="text-sm text-gray-500">Hours</div>
+                  </div>
+                  <div className="bg-white rounded-lg p-4 text-center shadow-md">
+                    <div className="text-4xl font-bold text-blue-600 mb-1">{timeLeft.minutes}</div>
+                    <div className="text-sm text-gray-500">Minutes</div>
+                  </div>
+                  <div className="bg-white rounded-lg p-4 text-center shadow-md">
+                    <div className="text-4xl font-bold text-blue-600 mb-1">{timeLeft.seconds}</div>
+                    <div className="text-sm text-gray-500">Seconds</div>
+                  </div>
                 </div>
+                {timeLeft.days === 0 && timeLeft.hours === 0 && timeLeft.minutes === 0 && timeLeft.seconds === 0 && (
+                  <div className="mt-4 text-center">
+                    <p className="text-lg font-semibold text-red-600">Event has started or ended!</p>
+                  </div>
+                )}
+              </div>
               </div>
             </div>
           </div>
