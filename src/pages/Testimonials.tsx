@@ -1,8 +1,10 @@
 
 import { useEffect, useState } from "react";
+import { useFormContext } from '@/components/forms/FormProvider';
+import { Link } from 'react-router-dom';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ThemeToggle from "@/components/ThemeToggle";
+// import ThemeToggle from "@/components/ThemeToggle";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -14,6 +16,8 @@ const Testimonials = () => {
   }, []);
 
   const [filter, setFilter] = useState("all");
+    const { openJoinCommunityForm } = useFormContext();
+  
 
   const testimonials = [
     {
@@ -127,7 +131,7 @@ const Testimonials = () => {
       
       {/* Fixed theme toggle button */}
       <div className="fixed bottom-6 right-6 z-50">
-        <ThemeToggle />
+        {/* <ThemeToggle /> */}
       </div>
       
       {/* Hero Section */}
@@ -311,7 +315,7 @@ const Testimonials = () => {
                   Submit Written Testimonial
                 </Button>
                 <Button size="lg" variant="outline">
-                  Record Video Testimonial
+                  Upload Video Testimonial
                 </Button>
               </div>
             </div>
@@ -329,11 +333,15 @@ const Testimonials = () => {
             Join our community today and get the support, resources, and connections you need to thrive in your tech career.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50">
+            <Button size="lg" 
+            onClick={openJoinCommunityForm}
+            className="bg-white text-blue-600 hover:bg-blue-50">
+              
               Join the Community
             </Button>
-            <Button size="lg" variant="outline" className="text-white border-white hover:bg-blue-700">
-              Explore Programs
+            <Button size="lg"  className="text-white border-white bg-blue-700 hover:bg-blue-600">
+              <Link to="/programs"> Explore Programs</Link>
+             
             </Button>
           </div>
         </div>

@@ -1,7 +1,12 @@
 
+import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
+import { useFormContext } from './forms/FormProvider';
+
 
 const HeroSection = () => {
+    const { openJoinCommunityForm } = useFormContext();
+  
   return (
     <section className="pt-28 pb-16 md:pt-36 md:pb-24 bg-gradient-to-br from-blue-50 to-white dark:from-gray-900 dark:to-gray-800">
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
@@ -15,11 +20,14 @@ const HeroSection = () => {
             with mentors, resources, and opportunities to help them thrive in their careers.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-            <Button size="lg" className="bg-thrive-blue hover:bg-thrive-darkBlue text-white px-8 py-6">
+            <Button size="lg" 
+            onClick={openJoinCommunityForm}
+            className="bg-thrive-blue hover:bg-thrive-darkBlue text-white px-8 py-6">
               Join the Community
             </Button>
             <Button variant="outline" size="lg" className="px-8 py-6">
-              Learn More
+              <Link to="/about">Learn More</Link>
+              
             </Button>
           </div>
         </div>

@@ -9,7 +9,7 @@ import EventsSection from "@/components/EventsSection";
 import NewsletterSection from "@/components/NewsletterSection";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
-import ThemeToggle from "@/components/ThemeToggle";
+// import ThemeToggle from "@/components/ThemeToggle";
 
 const Index = () => {
   useEffect(() => {
@@ -22,7 +22,7 @@ const Index = () => {
       
       {/* Fixed theme toggle button */}
       <div className="fixed bottom-6 right-6 z-50">
-        <ThemeToggle />
+        {/* <ThemeToggle /> */}
       </div>
       
       <HeroSection />

@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ThemeToggle from "@/components/ThemeToggle";
+// import ThemeToggle from "@/components/ThemeToggle";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -72,7 +72,7 @@ const Contact = () => {
       
       {/* Fixed theme toggle button */}
       <div className="fixed bottom-6 right-6 z-50">
-        <ThemeToggle />
+        {/* <ThemeToggle /> */}
       </div>
       
       {/* Hero Section */}
@@ -102,7 +102,7 @@ const Contact = () => {
                 </div>
                 <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">Email</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">For general inquiries:</p>
-                <a href="mailto:info@thrivelink.com" className="text-thrive-blue hover:underline">info@thrivelink.com</a>
+                <a href="mailto:thrivelinkae@gmail.com" className="text-thrive-blue hover:underline">thrivelinkae@gmail.com</a>
               </div>
 
               <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-8 text-center hover:shadow-md transition-shadow duration-300">
@@ -113,7 +113,7 @@ const Contact = () => {
                 </div>
                 <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">Phone</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">Monday - Friday, 9am - 5pm:</p>
-                <a href="tel:+123456789" className="text-thrive-blue hover:underline">(123) 456-7890</a>
+                <a href="tel:+2348131591390" className="text-thrive-blue hover:underline">(234) 813-159-1390</a>
               </div>
 
               <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-8 text-center hover:shadow-md transition-shadow duration-300">
@@ -124,7 +124,7 @@ const Contact = () => {
                 </div>
                 <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">Location</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">Our main office:</p>
-                <p className="text-thrive-blue">123 Tech Hub Street, Suite 100<br />Innovation City, TC 12345</p>
+                <p className="text-thrive-blue">Online</p>
               </div>
             </div>
           </div>
@@ -234,13 +234,13 @@ const Contact = () => {
       </ScrollReveal>
 
       {/* Map Section */}
-      <ScrollReveal delay={150}>
-        <section className="py-16 md:py-24 bg-white dark:bg-gray-800">
+       {/* <ScrollReveal delay={150}>
+       <section className="py-16 md:py-24 bg-white dark:bg-gray-800">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto">
               <h2 className="text-3xl font-bold mb-6 text-center text-gray-900 dark:text-white">Find Us</h2>
               <div className="bg-gray-200 dark:bg-gray-700 rounded-xl h-96 overflow-hidden shadow-lg">
-                {/* Map placeholder - would be replaced with actual map integration */}
+                {/* Map placeholder - would be replaced with actual map integration 
                 <div className="w-full h-full flex items-center justify-center bg-gray-300 dark:bg-gray-600">
                   <MapPin className="h-12 w-12 text-thrive-blue" />
                 </div>
@@ -248,7 +248,7 @@ const Contact = () => {
             </div>
           </div>
         </section>
-      </ScrollReveal>
+      </ScrollReveal> */}
 
       {/* Connect Section */}
       <ScrollReveal delay={200}>

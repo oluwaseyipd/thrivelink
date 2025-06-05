@@ -48,7 +48,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link to="/" className="flex items-center">
           <span className="text-2xl font-bold text-thrive-blue dark:text-white">
-            Thrive<span className="text-thrive-green">Link</span>
+            Thrive<span className="text-thrive-green"> Link</span>
           </span>
         </Link>
         

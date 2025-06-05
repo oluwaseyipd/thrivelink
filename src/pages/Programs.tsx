@@ -1,14 +1,19 @@
 
 import { useEffect } from "react";
+import { Link } from 'react-router-dom';
+import { useFormContext } from '@/components/forms/FormProvider';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ThemeToggle from "@/components/ThemeToggle";
+// import ThemeToggle from "@/components/ThemeToggle";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Briefcase, GraduationCap, Rocket, Users } from "lucide-react";
 
 const Programs = () => {
+
+  const { openJoinCommunityForm } = useFormContext();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -19,7 +24,7 @@ const Programs = () => {
       
       {/* Fixed theme toggle button */}
       <div className="fixed bottom-6 right-6 z-50">
-        <ThemeToggle />
+        {/* <ThemeToggle /> */}
       </div>
       
       {/* Hero Section */}
@@ -242,11 +247,14 @@ const Programs = () => {
             Join Thrive Link today and get access to all our programs, mentorship opportunities, and resources to help you succeed in tech.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50">
+            <Button size="lg" 
+            onClick={openJoinCommunityForm}
+            className="bg-white text-blue-600 hover:bg-blue-50">
               Join Now
             </Button>
-            <Button size="lg" variant="outline" className="text-white border-white hover:bg-blue-700">
-              Learn More
+            <Button size="lg"  className="text-white border-white bg-blue-700 hover:bg-blue-600">
+              <Link to="/about">Learn More</Link>
+             
             </Button>
           </div>
         </div>

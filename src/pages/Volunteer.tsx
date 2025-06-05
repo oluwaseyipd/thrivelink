@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ThemeToggle from "@/components/ThemeToggle";
+// import ThemeToggle from "@/components/ThemeToggle";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -59,7 +59,7 @@ const Volunteer = () => {
       
       {/* Fixed theme toggle button */}
       <div className="fixed bottom-6 right-6 z-50">
-        <ThemeToggle />
+        {/* <ThemeToggle /> */}
       </div>
       
       {/* Hero Section */}
@@ -345,7 +345,7 @@ const Volunteer = () => {
             >
               Apply to Volunteer
             </Button>
-            <Button size="lg" variant="outline" className="text-white border-white hover:bg-blue-700">
+            <Button size="lg" className="text-white border-white bg-blue-700 hover:bg-blue-600">
               Learn More
             </Button>
           </div>

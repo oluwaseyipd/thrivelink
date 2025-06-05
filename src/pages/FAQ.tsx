@@ -1,8 +1,9 @@
 
 import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ThemeToggle from "@/components/ThemeToggle";
+// import ThemeToggle from "@/components/ThemeToggle";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -156,7 +157,7 @@ const FAQ = () => {
       
       {/* Fixed theme toggle button */}
       <div className="fixed bottom-6 right-6 z-50">
-        <ThemeToggle />
+        {/* <ThemeToggle /> */}
       </div>
       
       {/* Hero Section */}
@@ -299,7 +300,8 @@ const FAQ = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button className="bg-thrive-blue hover:bg-blue-700">
-                  Contact Support
+                  <Link to="/contact">Contact Support</Link>
+                  
                 </Button>
                 <Button variant="outline">
                   Join Community Discord

@@ -124,14 +124,14 @@ const JoinCommunityForm = ({ isOpen, onClose }: JoinCommunityFormProps) => {
     <>
       <Modal isOpen={isOpen} onClose={onClose} className="max-w-2xl">
         <div className="relative p-1">
-          <Button 
+          {/* <Button 
             variant="ghost" 
             size="icon" 
             className="absolute right-2 top-2" 
             onClick={onClose}
           >
             <X className="h-4 w-4" />
-          </Button>
+          </Button> */}
           
           <div className="mb-6 text-center">
             <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Join the Thrive Link Community</h2>

@@ -1,4 +1,4 @@
-
+import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -89,7 +89,8 @@ const EventsSection = () => {
         </div>
         
         <div className="mt-16 text-center">
-          <Button variant="outline" size="lg">View All Events</Button>
+          <Button variant="outline" size="lg">
+            <Link to="/events">View All Events</Link></Button>
         </div>
       </div>
     </section>

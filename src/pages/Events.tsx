@@ -2,11 +2,12 @@
 import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ThemeToggle from "@/components/ThemeToggle";
+// import ThemeToggle from "@/components/ThemeToggle";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Calendar, Clock } from "lucide-react";
+import EventNewletter from "@/components/EventNewsletter";
 
 const Events = () => {
   useEffect(() => {
@@ -82,7 +83,7 @@ const Events = () => {
       
       {/* Fixed theme toggle button */}
       <div className="fixed bottom-6 right-6 z-50">
-        <ThemeToggle />
+        {/* <ThemeToggle /> */}
       </div>
       
       {/* Hero Section */}
@@ -220,7 +221,7 @@ const Events = () => {
                     </div>
                     <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">{event.title}</h3>
                     <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">{event.location}</p>
-                    <Button variant="outline" className="w-full">View Recording</Button>
+                    <Button className="w-full bg-blue-700 hover:bg-blue-600">View Recording</Button>
                   </CardContent>
                 </Card>
               ))}
@@ -260,24 +261,7 @@ const Events = () => {
       </ScrollReveal>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-20 bg-gradient-to-r from-thrive-blue to-blue-600 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Stay Updated on Future Events
-          </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Never miss an opportunity to learn and connect. Subscribe to our newsletter for event announcements and updates.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50">
-              Subscribe to Updates
-            </Button>
-            <Button size="lg" variant="outline" className="text-white border-white hover:bg-blue-700">
-              View All Events
-            </Button>
-          </div>
-        </div>
-      </section>
+      <EventNewletter />
 
       <Footer />
     </div>

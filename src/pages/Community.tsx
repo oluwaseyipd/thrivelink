@@ -2,13 +2,16 @@
 import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ThemeToggle from "@/components/ThemeToggle";
+// import ThemeToggle from "@/components/ThemeToggle";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Users } from "lucide-react";
+import { useFormContext } from '@/components/forms/FormProvider';
 
 const Community = () => {
+
+  const { openJoinCommunityForm } = useFormContext();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -19,7 +22,7 @@ const Community = () => {
       
       {/* Fixed theme toggle button */}
       <div className="fixed bottom-6 right-6 z-50">
-        <ThemeToggle />
+        {/* <ThemeToggle /> */}
       </div>
       
       {/* Hero Section */}
@@ -32,7 +35,9 @@ const Community = () => {
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
               Join our vibrant community of tech enthusiasts, learners, and professionals. Connect, collaborate, and grow together.
             </p>
-            <Button size="lg" className="bg-thrive-blue hover:bg-blue-700">Join Our Community</Button>
+            <Button size="lg" 
+            onClick={openJoinCommunityForm}
+            className="bg-thrive-blue hover:bg-blue-700">Join Our Community</Button>
           </div>
         </div>
       </section>
@@ -174,7 +179,7 @@ const Community = () => {
                     For those focused on creating beautiful, responsive, and accessible user interfaces.
                   </p>
                   <div className="mt-auto pt-4">
-                    <Button variant="outline" className="w-full">Join Group</Button>
+                    <Button className="w-full bg-blue-700 hover:bg-blue-600">Join Group</Button>
                   </div>
                 </CardContent>
               </Card>
@@ -196,7 +201,7 @@ const Community = () => {
                     For those building robust server-side applications, APIs, and databases.
                   </p>
                   <div className="mt-auto pt-4">
-                    <Button variant="outline" className="w-full">Join Group</Button>
+                    <Button className="w-full bg-blue-700 hover:bg-blue-600">Join Group</Button>
                   </div>
                 </CardContent>
               </Card>
@@ -216,7 +221,7 @@ const Community = () => {
                     For those working with data analysis, machine learning, and AI applications.
                   </p>
                   <div className="mt-auto pt-4">
-                    <Button variant="outline" className="w-full">Join Group</Button>
+                    <Button className="w-full bg-blue-700 hover:bg-blue-600">Join Group</Button>
                   </div>
                 </CardContent>
               </Card>
@@ -243,7 +248,7 @@ const Community = () => {
                     For those building iOS, Android, and cross-platform mobile applications.
                   </p>
                   <div className="mt-auto pt-4">
-                    <Button variant="outline" className="w-full">Join Group</Button>
+                    <Button className="w-full bg-blue-700 hover:bg-blue-600">Join Group</Button>
                   </div>
                 </CardContent>
               </Card>
@@ -262,7 +267,7 @@ const Community = () => {
                     For those focused on deployment, infrastructure, and cloud technologies.
                   </p>
                   <div className="mt-auto pt-4">
-                    <Button variant="outline" className="w-full">Join Group</Button>
+                    <Button className="w-full bg-blue-700 hover:bg-blue-600">Join Group</Button>
                   </div>
                 </CardContent>
               </Card>
@@ -279,7 +284,7 @@ const Community = () => {
                     For designers creating intuitive, beautiful, and accessible digital experiences.
                   </p>
                   <div className="mt-auto pt-4">
-                    <Button variant="outline" className="w-full">Join Group</Button>
+                    <Button  className="w-full bg-blue-700 hover:bg-blue-600">Join Group</Button>
                   </div>
                 </CardContent>
               </Card>
@@ -362,7 +367,7 @@ const Community = () => {
             <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50">
               Join Discord Community
             </Button>
-            <Button size="lg" variant="outline" className="text-white border-white hover:bg-blue-700">
+            <Button size="lg" className="text-white border-white bg-blue-700 hover:bg-blue-600">
               Join Telegram Group
             </Button>
           </div>

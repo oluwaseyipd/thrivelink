@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ThemeToggle from "@/components/ThemeToggle";
+// import ThemeToggle from "@/components/ThemeToggle";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -91,7 +91,7 @@ const Resources = () => {
       
       {/* Fixed theme toggle button */}
       <div className="fixed bottom-6 right-6 z-50">
-        <ThemeToggle />
+        {/* <ThemeToggle /> */}
       </div>
       
       {/* Hero Section */}
@@ -161,7 +161,7 @@ const Resources = () => {
                     className={`flex items-center px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                       activeCategory === category.id 
                         ? 'bg-thrive-blue text-white' 
-                        : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                        : 'bg-gray-100  text-gray-700 hover:bg-gray-200'
                     }`}
                     onClick={() => setActiveCategory(category.id)}
                   >
@@ -189,7 +189,7 @@ const Resources = () => {
                       </div>
                       <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">{resource.title}</h3>
                       <p className="text-gray-600 dark:text-gray-300 mb-6">{resource.description}</p>
-                      <Button variant="outline" className="w-full">Read Article</Button>
+                      <Button className="w-full bg-blue-700 hover:bg-blue-600">Read Article</Button>
                     </CardContent>
                   </Card>
                 ))}
@@ -273,7 +273,7 @@ const Resources = () => {
           <div className="max-w-md mx-auto">
             <div className="flex flex-col sm:flex-row gap-4">
               <Input type="email" placeholder="Your email address" className="bg-white text-gray-900" />
-              <Button className="bg-white text-blue-600 hover:bg-blue-50">
+              <Button className="text-white bg-blue-700 hover:bg-blue-600">
                 Subscribe
               </Button>
             </div>
