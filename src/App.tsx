@@ -1,9 +1,10 @@
-
+import { useEffect, useState } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import PageLoader from "@/components/PageLoader";
 import Index from "./pages/Index";
 import AboutUs from "./pages/AboutUs";
 import Programs from "./pages/Programs";
@@ -19,31 +20,45 @@ import { FormProvider } from "./components/forms/FormProvider";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <FormProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/about" element={<AboutUs />} />
-            <Route path="/programs" element={<Programs />} />
-            <Route path="/community" element={<Community />} />
-            <Route path="/events" element={<Events />} />
-            <Route path="/resources" element={<Resources />} />
-            <Route path="/volunteer" element={<Volunteer />} />
-            <Route path="/testimonials" element={<Testimonials />} />
-            <Route path="/faq" element={<FAQ />} />
-            <Route path="/contact" element={<Contact />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-      </FormProvider>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+const App = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => setIsLoading(false), 2000);
+  }, []);
+
+  return (
+    <>
+      {isLoading ? (
+        <PageLoader />
+      ) : (
+        <QueryClientProvider client={queryClient}>
+          <TooltipProvider>
+            <FormProvider>
+              <BrowserRouter>
+                <Routes>
+                  <Route path="/" element={<Index />} />
+                  <Route path="/about" element={<AboutUs />} />
+                  <Route path="/programs" element={<Programs />} />
+                  <Route path="/community" element={<Community />} />
+                  <Route path="/events" element={<Events />} />
+                  <Route path="/resources" element={<Resources />} />
+                  <Route path="/volunteer" element={<Volunteer />} />
+                  <Route path="/testimonials" element={<Testimonials />} />
+                  <Route path="/faq" element={<FAQ />} />
+                  <Route path="/contact" element={<Contact />} />
+                  {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </BrowserRouter>
+            </FormProvider>
+          </TooltipProvider>
+          <Toaster />
+          <Sonner />
+        </QueryClientProvider>
+      )}
+    </>
+  );
+};
 
 export default App;

@@ -122,38 +122,46 @@ const JoinCommunityForm = ({ isOpen, onClose }: JoinCommunityFormProps) => {
 
   return (
     <>
-      <Modal isOpen={isOpen} onClose={onClose} className="max-w-2xl">
-        <div className="relative p-1">
-          {/* <Button 
+      <Modal isOpen={isOpen} onClose={onClose} className="w-full max-w-4xl mx-4 sm:mx-auto">
+        <div className="relative p-4 sm:p-6 max-h-[90vh] overflow-y-auto">
+          {/* Close button - positioned better for mobile */}
+          <Button 
             variant="ghost" 
             size="icon" 
-            className="absolute right-2 top-2" 
+            className="absolute right-2 top-2 z-10 bg-white/80 backdrop-blur-sm hover:bg-white/90 dark:bg-gray-800/80 dark:hover:bg-gray-800/90" 
             onClick={onClose}
           >
             <X className="h-4 w-4" />
-          </Button> */}
+          </Button>
           
-          <div className="mb-6 text-center">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Join the Thrive Link Community</h2>
-            <p className="text-gray-600 dark:text-gray-400 mt-2">
+          <div className="mb-6 text-center pr-8">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100">
+              Join the Thrive Link Community
+            </h2>
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mt-2">
               Fill in your details to join our growing community of tech professionals
             </p>
           </div>
           
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">
+              {/* Responsive grid - single column on mobile, two columns on larger screens */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
                 {/* Full Name */}
                 <FormField
                   control={form.control}
                   name="fullName"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Full Name</FormLabel>
+                      <FormLabel className="text-sm font-medium">Full Name</FormLabel>
                       <FormControl>
                         <div className="relative">
-                          <User className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
-                          <Input placeholder="John Doe" className="pl-10" {...field} />
+                          <User className="absolute left-3 top-2.5 h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
+                          <Input 
+                            placeholder="John Doe" 
+                            className="pl-10 h-10 sm:h-11 text-sm sm:text-base" 
+                            {...field} 
+                          />
                         </div>
                       </FormControl>
                       <FormMessage />
@@ -167,11 +175,15 @@ const JoinCommunityForm = ({ isOpen, onClose }: JoinCommunityFormProps) => {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Email Address</FormLabel>
+                      <FormLabel className="text-sm font-medium">Email Address</FormLabel>
                       <FormControl>
                         <div className="relative">
-                          <Mail className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
-                          <Input placeholder="email@example.com" className="pl-10" {...field} />
+                          <Mail className="absolute left-3 top-2.5 h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
+                          <Input 
+                            placeholder="email@example.com" 
+                            className="pl-10 h-10 sm:h-11 text-sm sm:text-base" 
+                            {...field} 
+                          />
                         </div>
                       </FormControl>
                       <FormMessage />
@@ -185,11 +197,15 @@ const JoinCommunityForm = ({ isOpen, onClose }: JoinCommunityFormProps) => {
                   name="phone"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Phone Number (Optional)</FormLabel>
+                      <FormLabel className="text-sm font-medium">Phone Number (Optional)</FormLabel>
                       <FormControl>
                         <div className="relative">
-                          <Phone className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
-                          <Input placeholder="+1 234 567 8900" className="pl-10" {...field} />
+                          <Phone className="absolute left-3 top-2.5 h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
+                          <Input 
+                            placeholder="+1 234 567 8900" 
+                            className="pl-10 h-10 sm:h-11 text-sm sm:text-base" 
+                            {...field} 
+                          />
                         </div>
                       </FormControl>
                       <FormMessage />
@@ -203,11 +219,15 @@ const JoinCommunityForm = ({ isOpen, onClose }: JoinCommunityFormProps) => {
                   name="country"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Country</FormLabel>
+                      <FormLabel className="text-sm font-medium">Country</FormLabel>
                       <FormControl>
                         <div className="relative">
-                          <MapPin className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
-                          <Input placeholder="Your country" className="pl-10" {...field} />
+                          <MapPin className="absolute left-3 top-2.5 h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
+                          <Input 
+                            placeholder="Your country" 
+                            className="pl-10 h-10 sm:h-11 text-sm sm:text-base" 
+                            {...field} 
+                          />
                         </div>
                       </FormControl>
                       <FormMessage />
@@ -221,9 +241,13 @@ const JoinCommunityForm = ({ isOpen, onClose }: JoinCommunityFormProps) => {
                   name="city"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>City</FormLabel>
+                      <FormLabel className="text-sm font-medium">City</FormLabel>
                       <FormControl>
-                        <Input placeholder="Your city" {...field} />
+                        <Input 
+                          placeholder="Your city" 
+                          className="h-10 sm:h-11 text-sm sm:text-base" 
+                          {...field} 
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -236,7 +260,7 @@ const JoinCommunityForm = ({ isOpen, onClose }: JoinCommunityFormProps) => {
                   name="techInterest"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Primary Tech Interest</FormLabel>
+                      <FormLabel className="text-sm font-medium">Primary Tech Interest</FormLabel>
                       <Select 
                         onValueChange={(value) => {
                           field.onChange(value)
@@ -245,7 +269,7 @@ const JoinCommunityForm = ({ isOpen, onClose }: JoinCommunityFormProps) => {
                         defaultValue={field.value}
                       >
                         <FormControl>
-                          <SelectTrigger>
+                          <SelectTrigger className="h-10 sm:h-11 text-sm sm:text-base">
                             <SelectValue placeholder="Select your primary interest" />
                           </SelectTrigger>
                         </FormControl>
@@ -262,16 +286,20 @@ const JoinCommunityForm = ({ isOpen, onClose }: JoinCommunityFormProps) => {
                   )}
                 />
 
-                {/* Other Tech Interest */}
+                {/* Other Tech Interest - spans full width on mobile */}
                 {showOtherTechInput && (
                   <FormField
                     control={form.control}
                     name="otherTechInterest"
                     render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Specify Other Interest</FormLabel>
+                      <FormItem className="lg:col-span-1">
+                        <FormLabel className="text-sm font-medium">Specify Other Interest</FormLabel>
                         <FormControl>
-                          <Input placeholder="Your tech interest" {...field} />
+                          <Input 
+                            placeholder="Your tech interest" 
+                            className="h-10 sm:h-11 text-sm sm:text-base" 
+                            {...field} 
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -279,60 +307,16 @@ const JoinCommunityForm = ({ isOpen, onClose }: JoinCommunityFormProps) => {
                   />
                 )}
 
-                {/* Skill Level */}
-                <FormField
-                  control={form.control}
-                  name="skillLevel"
-                  render={({ field }) => (
-                    <FormItem className="space-y-3">
-                      <FormLabel>Skill Level</FormLabel>
-                      <FormControl>
-                        <RadioGroup
-                          onValueChange={field.onChange}
-                          defaultValue={field.value}
-                          className="flex space-x-4"
-                        >
-                          <FormItem className="flex items-center space-x-2">
-                            <FormControl>
-                              <RadioGroupItem value="Beginner" />
-                            </FormControl>
-                            <FormLabel className="font-normal">
-                              Beginner
-                            </FormLabel>
-                          </FormItem>
-                          <FormItem className="flex items-center space-x-2">
-                            <FormControl>
-                              <RadioGroupItem value="Intermediate" />
-                            </FormControl>
-                            <FormLabel className="font-normal">
-                              Intermediate
-                            </FormLabel>
-                          </FormItem>
-                          <FormItem className="flex items-center space-x-2">
-                            <FormControl>
-                              <RadioGroupItem value="Advanced" />
-                            </FormControl>
-                            <FormLabel className="font-normal">
-                              Advanced
-                            </FormLabel>
-                          </FormItem>
-                        </RadioGroup>
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
                 {/* Status */}
                 <FormField
                   control={form.control}
                   name="status"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Current Status</FormLabel>
+                      <FormLabel className="text-sm font-medium">Current Status</FormLabel>
                       <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
-                          <SelectTrigger>
+                          <SelectTrigger className="h-10 sm:h-11 text-sm sm:text-base">
                             <SelectValue placeholder="Select your status" />
                           </SelectTrigger>
                         </FormControl>
@@ -353,10 +337,10 @@ const JoinCommunityForm = ({ isOpen, onClose }: JoinCommunityFormProps) => {
                   name="heardFrom"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>How did you hear about Thrive Link?</FormLabel>
+                      <FormLabel className="text-sm font-medium">How did you hear about Thrive Link?</FormLabel>
                       <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
-                          <SelectTrigger>
+                          <SelectTrigger className="h-10 sm:h-11 text-sm sm:text-base">
                             <SelectValue placeholder="Select option" />
                           </SelectTrigger>
                         </FormControl>
@@ -373,59 +357,19 @@ const JoinCommunityForm = ({ isOpen, onClose }: JoinCommunityFormProps) => {
                   )}
                 />
 
-                {/* Profile URL */}
+                {/* Profile URL - spans full width */}
                 <FormField
                   control={form.control}
                   name="profileUrl"
                   render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>LinkedIn/GitHub/Portfolio URL (Optional)</FormLabel>
+                    <FormItem className="lg:col-span-2">
+                      <FormLabel className="text-sm font-medium">LinkedIn/GitHub/Portfolio URL (Optional)</FormLabel>
                       <FormControl>
-                        <Input placeholder="https://..." {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                {/* Volunteer Interest */}
-                <FormField
-                  control={form.control}
-                  name="volunteer"
-                  render={({ field }) => (
-                    <FormItem className="space-y-3">
-                      <FormLabel>Would you be interested in volunteering?</FormLabel>
-                      <FormControl>
-                        <RadioGroup
-                          onValueChange={field.onChange}
-                          defaultValue={field.value}
-                          className="flex space-x-4"
-                        >
-                          <FormItem className="flex items-center space-x-2">
-                            <FormControl>
-                              <RadioGroupItem value="Yes" />
-                            </FormControl>
-                            <FormLabel className="font-normal">
-                              Yes
-                            </FormLabel>
-                          </FormItem>
-                          <FormItem className="flex items-center space-x-2">
-                            <FormControl>
-                              <RadioGroupItem value="No" />
-                            </FormControl>
-                            <FormLabel className="font-normal">
-                              No
-                            </FormLabel>
-                          </FormItem>
-                          <FormItem className="flex items-center space-x-2">
-                            <FormControl>
-                              <RadioGroupItem value="Maybe Later" />
-                            </FormControl>
-                            <FormLabel className="font-normal">
-                              Maybe Later
-                            </FormLabel>
-                          </FormItem>
-                        </RadioGroup>
+                        <Input 
+                          placeholder="https://..." 
+                          className="h-10 sm:h-11 text-sm sm:text-base" 
+                          {...field} 
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -433,17 +377,105 @@ const JoinCommunityForm = ({ isOpen, onClose }: JoinCommunityFormProps) => {
                 />
               </div>
 
-              {/* Hopes */}
+              {/* Skill Level - better mobile layout */}
+              <FormField
+                control={form.control}
+                name="skillLevel"
+                render={({ field }) => (
+                  <FormItem className="space-y-3">
+                    <FormLabel className="text-sm font-medium">Skill Level</FormLabel>
+                    <FormControl>
+                      <RadioGroup
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                        className="flex flex-col sm:flex-row sm:space-x-6 space-y-2 sm:space-y-0"
+                      >
+                        <FormItem className="flex items-center space-x-2">
+                          <FormControl>
+                            <RadioGroupItem value="Beginner" />
+                          </FormControl>
+                          <FormLabel className="font-normal text-sm">
+                            Beginner
+                          </FormLabel>
+                        </FormItem>
+                        <FormItem className="flex items-center space-x-2">
+                          <FormControl>
+                            <RadioGroupItem value="Intermediate" />
+                          </FormControl>
+                          <FormLabel className="font-normal text-sm">
+                            Intermediate
+                          </FormLabel>
+                        </FormItem>
+                        <FormItem className="flex items-center space-x-2">
+                          <FormControl>
+                            <RadioGroupItem value="Advanced" />
+                          </FormControl>
+                          <FormLabel className="font-normal text-sm">
+                            Advanced
+                          </FormLabel>
+                        </FormItem>
+                      </RadioGroup>
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              {/* Volunteer Interest - better mobile layout */}
+              <FormField
+                control={form.control}
+                name="volunteer"
+                render={({ field }) => (
+                  <FormItem className="space-y-3">
+                    <FormLabel className="text-sm font-medium">Would you be interested in volunteering?</FormLabel>
+                    <FormControl>
+                      <RadioGroup
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                        className="flex flex-col sm:flex-row sm:space-x-6 space-y-2 sm:space-y-0"
+                      >
+                        <FormItem className="flex items-center space-x-2">
+                          <FormControl>
+                            <RadioGroupItem value="Yes" />
+                          </FormControl>
+                          <FormLabel className="font-normal text-sm">
+                            Yes
+                          </FormLabel>
+                        </FormItem>
+                        <FormItem className="flex items-center space-x-2">
+                          <FormControl>
+                            <RadioGroupItem value="No" />
+                          </FormControl>
+                          <FormLabel className="font-normal text-sm">
+                            No
+                          </FormLabel>
+                        </FormItem>
+                        <FormItem className="flex items-center space-x-2">
+                          <FormControl>
+                            <RadioGroupItem value="Maybe Later" />
+                          </FormControl>
+                          <FormLabel className="font-normal text-sm">
+                            Maybe Later
+                          </FormLabel>
+                        </FormItem>
+                      </RadioGroup>
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              {/* Hopes - full width */}
               <FormField
                 control={form.control}
                 name="hopes"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>What do you hope to gain from Thrive Link?</FormLabel>
+                    <FormLabel className="text-sm font-medium">What do you hope to gain from Thrive Link?</FormLabel>
                     <FormControl>
                       <Textarea 
                         placeholder="Tell us what you're looking to achieve..."
-                        className="min-h-24 resize-none"
+                        className="min-h-20 sm:min-h-24 resize-none text-sm sm:text-base"
                         {...field} 
                       />
                     </FormControl>
@@ -457,15 +489,16 @@ const JoinCommunityForm = ({ isOpen, onClose }: JoinCommunityFormProps) => {
                 control={form.control}
                 name="consent"
                 render={({ field }) => (
-                  <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
+                  <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-3 sm:p-4">
                     <FormControl>
                       <Checkbox
                         checked={field.value}
                         onCheckedChange={field.onChange}
+                        className="mt-0.5"
                       />
                     </FormControl>
                     <div className="space-y-1 leading-none">
-                      <FormLabel>
+                      <FormLabel className="text-sm leading-5">
                         I agree to receive emails and updates from Thrive Link
                       </FormLabel>
                     </div>
@@ -473,7 +506,9 @@ const JoinCommunityForm = ({ isOpen, onClose }: JoinCommunityFormProps) => {
                 )}
               />
 
-              <Button type="submit" className="w-full">Join the Community</Button>
+              <Button type="submit" className="w-full h-11 text-base font-medium">
+                Join the Community
+              </Button>
             </form>
           </Form>
         </div>
