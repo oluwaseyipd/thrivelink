@@ -111,16 +111,16 @@ const EventDetailModal = ({ isOpen, onClose, onRegister, event }: EventDetailMod
   const details = eventDetails[event.id as keyof typeof eventDetails] || eventDetails[1]
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} className="max-w-4xl">
-      <DialogHeader>
-        <DialogTitle className="text-2xl font-bold text-gray-900 dark:text-white">
+    <Modal isOpen={isOpen} onClose={onClose} className="w-full max-w-4xl mx-4 sm:mx-6 lg:mx-auto max-h-[95vh] overflow-y-auto">
+      <DialogHeader className="px-4 sm:px-6 pt-4 sm:pt-6">
+        <DialogTitle className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 dark:text-white leading-tight">
           {event.title}
         </DialogTitle>
       </DialogHeader>
 
-      <div className="mt-4 space-y-6">
+      <div className="px-4 sm:px-6 pb-4 sm:pb-6 mt-4 space-y-4 sm:space-y-6">
         {/* Event Image */}
-        <div className="h-64 overflow-hidden rounded-lg">
+        <div className="h-48 sm:h-56 lg:h-64 overflow-hidden rounded-lg">
           <img 
             src={event.image} 
             alt={event.title} 
@@ -129,52 +129,52 @@ const EventDetailModal = ({ isOpen, onClose, onRegister, event }: EventDetailMod
         </div>
 
         {/* Event Info Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Left Column */}
-          <div className="space-y-4">
-            <div className="flex items-center text-gray-600 dark:text-gray-300">
-              <Calendar className="mr-2 h-5 w-5 text-thrive-blue" />
-              <span>{event.date}</span>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
+          {/* Left Column - Event Details */}
+          <div className="space-y-3 sm:space-y-4">
+            <div className="flex items-center text-gray-600 dark:text-gray-300 text-sm sm:text-base">
+              <Calendar className="mr-2 h-4 w-4 sm:h-5 sm:w-5 text-thrive-blue flex-shrink-0" />
+              <span className="break-words">{event.date}</span>
             </div>
-            <div className="flex items-center text-gray-600 dark:text-gray-300">
-              <Clock className="mr-2 h-5 w-5 text-thrive-blue" />
-              <span>{event.time} ({details.duration})</span>
+            <div className="flex items-center text-gray-600 dark:text-gray-300 text-sm sm:text-base">
+              <Clock className="mr-2 h-4 w-4 sm:h-5 sm:w-5 text-thrive-blue flex-shrink-0" />
+              <span className="break-words">{event.time} ({details.duration})</span>
             </div>
-            <div className="flex items-center text-gray-600 dark:text-gray-300">
-              <MapPin className="mr-2 h-5 w-5 text-thrive-blue" />
-              <span>{event.location}</span>
+            <div className="flex items-center text-gray-600 dark:text-gray-300 text-sm sm:text-base">
+              <MapPin className="mr-2 h-4 w-4 sm:h-5 sm:w-5 text-thrive-blue flex-shrink-0" />
+              <span className="break-words">{event.location}</span>
             </div>
-            <div className="flex items-center text-gray-600 dark:text-gray-300">
-              <Users className="mr-2 h-5 w-5 text-thrive-blue" />
+            <div className="flex items-center text-gray-600 dark:text-gray-300 text-sm sm:text-base">
+              <Users className="mr-2 h-4 w-4 sm:h-5 sm:w-5 text-thrive-blue flex-shrink-0" />
               <span>{details.currentRegistrations}/{details.maxParticipants} registered</span>
             </div>
-            <div className="flex items-center text-gray-600 dark:text-gray-300">
-              <Star className="mr-2 h-5 w-5 text-thrive-blue" />
-              <span>Instructor: {details.instructor}</span>
+            <div className="flex items-center text-gray-600 dark:text-gray-300 text-sm sm:text-base">
+              <Star className="mr-2 h-4 w-4 sm:h-5 sm:w-5 text-thrive-blue flex-shrink-0" />
+              <span className="break-words">Instructor: {details.instructor}</span>
             </div>
           </div>
 
-          {/* Right Column */}
-          <div className="space-y-4">
+          {/* Right Column - Description & Prerequisites */}
+          <div className="space-y-3 sm:space-y-4">
             <div>
-              <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Description</h4>
-              <p className="text-gray-600 dark:text-gray-300">{event.description}</p>
+              <h4 className="font-semibold text-gray-900 dark:text-white mb-2 text-sm sm:text-base">Description</h4>
+              <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed">{event.description}</p>
             </div>
             <div>
-              <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Prerequisites</h4>
-              <p className="text-gray-600 dark:text-gray-300">{details.prerequisites}</p>
+              <h4 className="font-semibold text-gray-900 dark:text-white mb-2 text-sm sm:text-base">Prerequisites</h4>
+              <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed">{details.prerequisites}</p>
             </div>
           </div>
         </div>
 
         {/* What You'll Learn */}
         <div>
-          <h4 className="font-semibold text-gray-900 dark:text-white mb-3">What You'll Learn</h4>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+          <h4 className="font-semibold text-gray-900 dark:text-white mb-3 text-sm sm:text-base">What You'll Learn</h4>
+          <div className="space-y-2 sm:space-y-3">
             {details.whatYouWillLearn.map((item, index) => (
               <div key={index} className="flex items-start">
-                <CheckCircle className="mr-2 h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                <span className="text-gray-600 dark:text-gray-300 text-sm">{item}</span>
+                <CheckCircle className="mr-2 sm:mr-3 h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                <span className="text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed">{item}</span>
               </div>
             ))}
           </div>
@@ -182,29 +182,29 @@ const EventDetailModal = ({ isOpen, onClose, onRegister, event }: EventDetailMod
 
         {/* Event Agenda */}
         <div>
-          <h4 className="font-semibold text-gray-900 dark:text-white mb-3">Event Agenda</h4>
+          <h4 className="font-semibold text-gray-900 dark:text-white mb-3 text-sm sm:text-base">Event Agenda</h4>
           <div className="space-y-2">
             {details.agenda.map((item, index) => (
-              <div key={index} className="flex justify-between items-center py-2 px-3 bg-gray-50 dark:bg-gray-700 rounded">
-                <span className="font-medium text-thrive-blue">{item.time}</span>
-                <span className="text-gray-600 dark:text-gray-300">{item.topic}</span>
+              <div key={index} className="flex flex-col sm:flex-row sm:justify-between sm:items-center py-3 px-3 sm:px-4 bg-gray-50 dark:bg-gray-700 rounded gap-1 sm:gap-2">
+                <span className="font-medium text-thrive-blue text-sm sm:text-base flex-shrink-0">{item.time}</span>
+                <span className="text-gray-600 dark:text-gray-300 text-sm sm:text-base">{item.topic}</span>
               </div>
             ))}
           </div>
         </div>
 
         {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t">
+        <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-gray-200 dark:border-gray-600 sticky bottom-0 bg-white dark:bg-gray-800 -mx-4 sm:-mx-6 px-4 sm:px-6 pb-4 sm:pb-6">
           <Button
             variant="outline"
             onClick={onClose}
-            className="w-full sm:w-auto"
+            className="w-full sm:w-auto order-2 sm:order-1 text-sm sm:text-base py-2 sm:py-2.5"
           >
             Close
           </Button>
           <Button
             onClick={handleRegisterClick}
-            className="w-full sm:w-auto bg-thrive-blue hover:bg-blue-700"
+            className="w-full sm:w-auto order-1 sm:order-2 bg-thrive-blue hover:bg-blue-700 text-sm sm:text-base py-2 sm:py-2.5 font-medium"
             disabled={details.currentRegistrations >= details.maxParticipants}
           >
             {details.currentRegistrations >= details.maxParticipants ? "Event Full" : "Register Now"}

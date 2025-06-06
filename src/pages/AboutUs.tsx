@@ -362,7 +362,7 @@ const AboutUs = () => {
                   key={member.id}
                   className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden"
                 >
-                  <div className="h-48 overflow-hidden">
+                  <div className="h-50 md:h-48 overflow-hidden">
                     <img src={member.image} alt="Team 1" className="w-full" />
                   </div>
                   <div className="p-4">

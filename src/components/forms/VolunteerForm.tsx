@@ -104,41 +104,47 @@ const VolunteerForm = ({ isOpen, onClose }: VolunteerFormProps) => {
 
   return (
     <>
-      <Modal isOpen={isOpen} onClose={onClose} className="max-w-2xl">
-        <div className="relative p-1">
+      <Modal isOpen={isOpen} onClose={onClose} className="w-full max-w-2xl mx-4 sm:mx-6 lg:mx-auto max-h-[95vh] overflow-y-auto">
+        <div className="relative p-4 sm:p-6">
           <Button 
             variant="ghost" 
             size="icon" 
-            className="absolute right-2 top-2" 
+            className="absolute right-2 top-2 sm:right-4 sm:top-4 z-10 h-8 w-8 sm:h-10 sm:w-10" 
             onClick={onClose}
           >
-            <X className="h-4 w-4" />
+            <X className="h-4 w-4 sm:h-5 sm:w-5" />
           </Button>
           
-          <div className="mb-6 text-center">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Apply to Volunteer</h2>
-            <p className="text-gray-600 dark:text-gray-400 mt-2">
+          <div className="mb-6 sm:mb-8 text-center pr-8 sm:pr-12">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-gray-100">
+              Apply to Volunteer
+            </h2>
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mt-2 leading-relaxed">
               Share your skills and help grow the Thrive Link community
             </p>
           </div>
           
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
                 {/* Full Name */}
                 <FormField
                   control={form.control}
                   name="fullName"
                   render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Full Name</FormLabel>
+                    <FormItem className="lg:col-span-1">
+                      <FormLabel className="text-sm sm:text-base font-medium">Full Name</FormLabel>
                       <FormControl>
                         <div className="relative">
-                          <User className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
-                          <Input placeholder="John Doe" className="pl-10" {...field} />
+                          <User className="absolute left-3 top-3 h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
+                          <Input 
+                            placeholder="John Doe" 
+                            className="pl-10 sm:pl-11 h-11 sm:h-12 text-sm sm:text-base" 
+                            {...field} 
+                          />
                         </div>
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="text-xs sm:text-sm" />
                     </FormItem>
                   )}
                 />
@@ -148,15 +154,19 @@ const VolunteerForm = ({ isOpen, onClose }: VolunteerFormProps) => {
                   control={form.control}
                   name="email"
                   render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Email Address</FormLabel>
+                    <FormItem className="lg:col-span-1">
+                      <FormLabel className="text-sm sm:text-base font-medium">Email Address</FormLabel>
                       <FormControl>
                         <div className="relative">
-                          <Mail className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
-                          <Input placeholder="email@example.com" className="pl-10" {...field} />
+                          <Mail className="absolute left-3 top-3 h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
+                          <Input 
+                            placeholder="email@example.com" 
+                            className="pl-10 sm:pl-11 h-11 sm:h-12 text-sm sm:text-base" 
+                            {...field} 
+                          />
                         </div>
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="text-xs sm:text-sm" />
                     </FormItem>
                   )}
                 />
@@ -166,15 +176,19 @@ const VolunteerForm = ({ isOpen, onClose }: VolunteerFormProps) => {
                   control={form.control}
                   name="phone"
                   render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Phone Number (Optional)</FormLabel>
+                    <FormItem className="lg:col-span-1">
+                      <FormLabel className="text-sm sm:text-base font-medium">Phone Number (Optional)</FormLabel>
                       <FormControl>
                         <div className="relative">
-                          <Phone className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
-                          <Input placeholder="+1 234 567 8900" className="pl-10" {...field} />
+                          <Phone className="absolute left-3 top-3 h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
+                          <Input 
+                            placeholder="+1 234 567 8900" 
+                            className="pl-10 sm:pl-11 h-11 sm:h-12 text-sm sm:text-base" 
+                            {...field} 
+                          />
                         </div>
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="text-xs sm:text-sm" />
                     </FormItem>
                   )}
                 />
@@ -184,15 +198,19 @@ const VolunteerForm = ({ isOpen, onClose }: VolunteerFormProps) => {
                   control={form.control}
                   name="country"
                   render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Country</FormLabel>
+                    <FormItem className="lg:col-span-1">
+                      <FormLabel className="text-sm sm:text-base font-medium">Country</FormLabel>
                       <FormControl>
                         <div className="relative">
-                          <MapPin className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
-                          <Input placeholder="Your country" className="pl-10" {...field} />
+                          <MapPin className="absolute left-3 top-3 h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
+                          <Input 
+                            placeholder="Your country" 
+                            className="pl-10 sm:pl-11 h-11 sm:h-12 text-sm sm:text-base" 
+                            {...field} 
+                          />
                         </div>
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="text-xs sm:text-sm" />
                     </FormItem>
                   )}
                 />
@@ -202,12 +220,16 @@ const VolunteerForm = ({ isOpen, onClose }: VolunteerFormProps) => {
                   control={form.control}
                   name="timezone"
                   render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Time Zone</FormLabel>
+                    <FormItem className="lg:col-span-1">
+                      <FormLabel className="text-sm sm:text-base font-medium">Time Zone</FormLabel>
                       <FormControl>
-                        <Input placeholder="e.g., GMT+1, EST" {...field} />
+                        <Input 
+                          placeholder="e.g., GMT+1, EST" 
+                          className="h-11 sm:h-12 text-sm sm:text-base" 
+                          {...field} 
+                        />
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="text-xs sm:text-sm" />
                     </FormItem>
                   )}
                 />
@@ -217,8 +239,8 @@ const VolunteerForm = ({ isOpen, onClose }: VolunteerFormProps) => {
                   control={form.control}
                   name="volunteerArea"
                   render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Area you'd like to volunteer in</FormLabel>
+                    <FormItem className="lg:col-span-1">
+                      <FormLabel className="text-sm sm:text-base font-medium">Area you'd like to volunteer in</FormLabel>
                       <Select 
                         onValueChange={(value) => {
                           field.onChange(value)
@@ -227,19 +249,19 @@ const VolunteerForm = ({ isOpen, onClose }: VolunteerFormProps) => {
                         defaultValue={field.value}
                       >
                         <FormControl>
-                          <SelectTrigger>
+                          <SelectTrigger className="h-11 sm:h-12 text-sm sm:text-base">
                             <SelectValue placeholder="Select an area" />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
                           {volunteerAreas.map((area) => (
-                            <SelectItem key={area} value={area}>
+                            <SelectItem key={area} value={area} className="text-sm sm:text-base">
                               {area}
                             </SelectItem>
                           ))}
                         </SelectContent>
                       </Select>
-                      <FormMessage />
+                      <FormMessage className="text-xs sm:text-sm" />
                     </FormItem>
                   )}
                 />
@@ -250,12 +272,16 @@ const VolunteerForm = ({ isOpen, onClose }: VolunteerFormProps) => {
                     control={form.control}
                     name="otherVolunteerArea"
                     render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Specify Other Area</FormLabel>
+                      <FormItem className="lg:col-span-1">
+                        <FormLabel className="text-sm sm:text-base font-medium">Specify Other Area</FormLabel>
                         <FormControl>
-                          <Input placeholder="Your volunteer area" {...field} />
+                          <Input 
+                            placeholder="Your volunteer area" 
+                            className="h-11 sm:h-12 text-sm sm:text-base" 
+                            {...field} 
+                          />
                         </FormControl>
-                        <FormMessage />
+                        <FormMessage className="text-xs sm:text-sm" />
                       </FormItem>
                     )}
                   />
@@ -266,15 +292,19 @@ const VolunteerForm = ({ isOpen, onClose }: VolunteerFormProps) => {
                   control={form.control}
                   name="availability"
                   render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Availability</FormLabel>
+                    <FormItem className="lg:col-span-1">
+                      <FormLabel className="text-sm sm:text-base font-medium">Availability</FormLabel>
                       <FormControl>
                         <div className="relative">
-                          <Clock className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
-                          <Input placeholder="e.g., 3 hrs/week, Evenings only" className="pl-10" {...field} />
+                          <Clock className="absolute left-3 top-3 h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
+                          <Input 
+                            placeholder="e.g., 3 hrs/week, Evenings only" 
+                            className="pl-10 sm:pl-11 h-11 sm:h-12 text-sm sm:text-base" 
+                            {...field} 
+                          />
                         </div>
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="text-xs sm:text-sm" />
                     </FormItem>
                   )}
                 />
@@ -284,15 +314,19 @@ const VolunteerForm = ({ isOpen, onClose }: VolunteerFormProps) => {
                   control={form.control}
                   name="experience"
                   render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Relevant experience or portfolio (Optional)</FormLabel>
+                    <FormItem className="lg:col-span-1">
+                      <FormLabel className="text-sm sm:text-base font-medium">Relevant experience or portfolio (Optional)</FormLabel>
                       <FormControl>
                         <div className="relative">
-                          <FileText className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
-                          <Input placeholder="Links or brief description" className="pl-10" {...field} />
+                          <FileText className="absolute left-3 top-3 h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
+                          <Input 
+                            placeholder="Links or brief description" 
+                            className="pl-10 sm:pl-11 h-11 sm:h-12 text-sm sm:text-base" 
+                            {...field} 
+                          />
                         </div>
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="text-xs sm:text-sm" />
                     </FormItem>
                   )}
                 />
@@ -304,15 +338,15 @@ const VolunteerForm = ({ isOpen, onClose }: VolunteerFormProps) => {
                 name="motivation"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Why would you like to volunteer with Thrive Link?</FormLabel>
+                    <FormLabel className="text-sm sm:text-base font-medium">Why would you like to volunteer with Thrive Link?</FormLabel>
                     <FormControl>
                       <Textarea 
                         placeholder="Tell us about your motivation and what you hope to contribute..."
-                        className="min-h-24 resize-none"
+                        className="min-h-24 sm:min-h-28 resize-none text-sm sm:text-base leading-relaxed"
                         {...field} 
                       />
                     </FormControl>
-                    <FormMessage />
+                    <FormMessage className="text-xs sm:text-sm" />
                   </FormItem>
                 )}
               />
@@ -322,15 +356,16 @@ const VolunteerForm = ({ isOpen, onClose }: VolunteerFormProps) => {
                 control={form.control}
                 name="consent"
                 render={({ field }) => (
-                  <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
+                  <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-3 sm:p-4">
                     <FormControl>
                       <Checkbox
                         checked={field.value}
                         onCheckedChange={field.onChange}
+                        className="mt-0.5 h-4 w-4 sm:h-5 sm:w-5"
                       />
                     </FormControl>
                     <div className="space-y-1 leading-none">
-                      <FormLabel>
+                      <FormLabel className="text-sm sm:text-base leading-relaxed cursor-pointer">
                         I agree to be contacted for volunteer opportunities
                       </FormLabel>
                     </div>
@@ -338,7 +373,14 @@ const VolunteerForm = ({ isOpen, onClose }: VolunteerFormProps) => {
                 )}
               />
 
-              <Button type="submit" className="w-full bg-thrive-blue hover:bg-blue-700">Apply Now</Button>
+              <div className="pt-2 sm:pt-4">
+                <Button 
+                  type="submit" 
+                  className="w-full bg-thrive-blue hover:bg-blue-700 h-11 sm:h-12 text-sm sm:text-base font-medium"
+                >
+                  Apply Now
+                </Button>
+              </div>
             </form>
           </Form>
         </div>
