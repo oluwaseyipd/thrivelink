@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Testimonial from '@/components/Testimonial';
 // import ThemeToggle from "@/components/ThemeToggle";
 import ScrollReveal from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
@@ -504,26 +505,9 @@ const AboutUs = () => {
               </p>
             </div>
           </div>
+          
+          <Testimonial />
 
-            <div className="bg-blue-50 dark:bg-gray-700 p-8 rounded-xl max-w-4xl mx-auto">
-              <div className="flex flex-col md:flex-row gap-6">
-                <div className="md:w-1/4 flex justify-center">
-                  <div className="text-6xl text-thrive-blue">
-                    <Star className="w-16 h-16" />
-                  </div>
-                </div>
-                <div className="md:w-3/4">
-                  <blockquote className="text-lg italic text-gray-700 dark:text-gray-300 mb-4">
-                    "Joining Thrive Link was a turning point in my career. The
-                    mentorship and community support helped me land my first
-                    developer role after just 6 months of focused learning."
-                  </blockquote>
-                  <div className="font-medium text-gray-900 dark:text-white">
-                    — Jamie Rivera, Junior Developer
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </section>
       </ScrollReveal>
