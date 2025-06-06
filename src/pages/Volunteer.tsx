@@ -345,9 +345,9 @@ const Volunteer = () => {
             >
               Apply to Volunteer
             </Button>
-            <Button size="lg" className="text-white border-white bg-blue-700 hover:bg-blue-600">
+            {/* <Button size="lg" className="text-white border-white bg-blue-700 hover:bg-blue-600">
               Learn More
-            </Button>
+            </Button> */}
           </div>
         </div>
       </section>

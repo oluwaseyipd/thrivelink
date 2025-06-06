@@ -35,7 +35,7 @@ const NewsletterSection = () => {
           <p className="text-blue-100 text-lg mb-8">
             Join our newsletter to receive the latest updates, resources, and opportunities.
           </p>
-          <form onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-4 items-center">
+          <form onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-4 justify-center items-center">
             <Input
               type="email"
               placeholder="Enter your email address"

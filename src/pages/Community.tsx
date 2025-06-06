@@ -365,11 +365,13 @@ const Community = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50">
+              <a href="https://discord.gg/FYY8TXrs" target="_blank">
               Join Discord Community
-            </Button>
+            </a></Button>
             <Button size="lg" className="text-white border-white bg-blue-700 hover:bg-blue-600">
-              Join Telegram Group
-            </Button>
+              <a href="https://chat.whatsapp.com/C3kiRTBya1y2li89HtNLZu" target="_blank">
+              Join WhatsApp Community
+            </a></Button>
           </div>
         </div>
       </section>

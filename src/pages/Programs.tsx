@@ -132,7 +132,7 @@ const Programs = () => {
                     Group projects that mimic real-world scenarios
                   </li>
                 </ul>
-                <Button size="lg" className="bg-thrive-blue hover:bg-blue-700">Explore Bootcamps</Button>
+                <Button size="lg" className="bg-thrive-blue hover:bg-blue-700"><Link to="/resources">Explore Bootcamps</Link></Button>
               </div>
             </div>
           </div>
@@ -230,7 +230,7 @@ const Programs = () => {
                     Project templates and starter code for practice
                   </li>
                 </ul>
-                <Button size="lg" className="bg-thrive-blue hover:bg-blue-700">Browse Resources</Button>
+                <Button size="lg" className="bg-thrive-blue hover:bg-blue-700"><Link to="/resources">Browse Resources</Link></Button>
               </div>
             </div>
           </div>

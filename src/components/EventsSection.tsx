@@ -10,6 +10,7 @@ const events = [
     date: "June 15, 2023",
     time: "6:00 PM - 8:00 PM",
     type: "Bootcamp",
+    link: "/events",
     image: "https://images.unsplash.com/photo-1515169067868-5387ec356754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
   },
   {
@@ -19,6 +20,7 @@ const events = [
     date: "June 22, 2023",
     time: "5:30 PM - 7:30 PM",
     type: "Webinar",
+    link: "/events",
     image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
   },
   {
@@ -28,6 +30,7 @@ const events = [
     date: "June 30, 2023",
     time: "7:00 PM - 9:00 PM",
     type: "Mentoring",
+    link: "/events",
     image: "https://images.unsplash.com/photo-1515169067868-5387ec356754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
   }
 ];
@@ -82,7 +85,7 @@ const EventsSection = () => {
                 </div>
               </CardContent>
               <CardFooter>
-                <Button className="w-full">Register Now</Button>
+                <Button className="w-full"><Link to={event.link}>Register Now</Link></Button>
               </CardFooter>
             </Card>
           ))}

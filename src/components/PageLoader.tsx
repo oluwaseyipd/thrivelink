@@ -41,7 +41,7 @@ const PageLoader = () => {
             {'THRIVE LINK'.split('').map((letter, index) => (
               <span
                 key={index}
-                className="text-4xl md:text-5xl font-bold text-gray-600 inline-block animate-bounce"
+                className="text-4xl md:text-5xl font-bold text-thrive-blue inline-block animate-bounce"
                 style={{
                   animationDelay: `${index * 0.1}s`,
                   animationDuration: '1s',
