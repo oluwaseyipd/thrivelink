@@ -20,9 +20,9 @@ const teammembers = [
     name: "Abiola john oluwaseyi",
     post: "Founder & CEO",
     description: "Fullstack web developer passionate about creating pathways for underrepresented talent in tech.",
-    twitter: "",
-    instagram: "",
-    inkedin: "",
+    twitter: "https://x.com/oluwaseyipd",
+    instagram: "https://instagram.com/oluwaseyipd",
+    inkedin: "https://www.linkedin.com/in/oluwaseyiae/",
 
   },
    {
@@ -31,8 +31,8 @@ const teammembers = [
     name: "Kolade Favour",
     post: "Social Manager",
     description: "Machine Learning engineer focused on building model that cause transformation.",
-      twitter: "",
-      instagram: "",
+      twitter: "https://x.com/favourrr_____",
+      instagram: "https://www.instagram.com/_thefavouredfavour",
       linkedin: "",
 
   },
@@ -42,8 +42,8 @@ const teammembers = [
     name: "Kolade Precious",
     post: "Graphic Designer",
     description: "A brand identity professional focused on elevating brands and bring them to spotlight.",
-      twitter: "",
-      instagram: "",
+      twitter: "https://x.com/vectorpixels_",
+      instagram: "https://www.instagram.com/vectorpixels_",
       linkedin: "",
   },
    {
@@ -52,8 +52,8 @@ const teammembers = [
     name: "Amole Temiloluwa",
     post: "Content Writer",
     description: "Career coach with expertise in helping professionals transition into tech careers.",
-      twitter: "",
-      instagram: "",
+      twitter: "https://x.com/theunvrseffect",
+      instagram: "https://www.instagram.com/itis_temi",
       linkedin: "",
   }
 ];
@@ -379,7 +379,8 @@ const AboutUs = () => {
 
                   <div className="flex space-x-4 px-4 pb-5">
                     <a
-                      href={member.twitter}
+                      href={member.twitter} 
+                      target= "_blank"
                       className="hover:text-gray-400 text-thrive-blue transition-colors"
                     >
                       <svg
@@ -398,7 +399,8 @@ const AboutUs = () => {
                       </svg>
                     </a>
                     <a
-                      href={member.linkedin}
+                      href={member.linkedin} 
+                      target= "_blank"
                       className="hover:text-gray-400 text-thrive-blue transition-colors"
                     >
                       <svg
@@ -419,7 +421,8 @@ const AboutUs = () => {
                       </svg>
                     </a>
                     <a
-                      href={member.instagram}
+                      href={member.instagram} 
+                      target= "_blank"
                       className="hover:text-gray-400 text-thrive-blue transition-colors"
                     >
                       <svg
