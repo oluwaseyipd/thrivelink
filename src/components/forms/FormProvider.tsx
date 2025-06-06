@@ -6,6 +6,7 @@ import EmailPreview from "./EmailPreview"
 import WelcomeEmailTemplate from "../emails/WelcomeEmailTemplate"
 import ProposeEventForm from "./ProposeEventForm"
 
+
 interface FormContextType {
   openJoinCommunityForm: () => void
   openProposeEventForm?: () => void
@@ -45,13 +46,15 @@ export const FormProvider = ({ children }: FormProviderProps) => {
   const openWelcomeEmailPreview = () => setWelcomeEmailPreviewOpen(true)
   const closeWelcomeEmailPreview = () => setWelcomeEmailPreviewOpen(false)
 
+  
+
   return (
     <FormContext.Provider
       value={{
         openJoinCommunityForm,
         openProposeEventForm,
         openVolunteerForm,
-        openWelcomeEmailPreview
+        openWelcomeEmailPreview,
       }}
     >
       {children}
