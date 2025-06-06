@@ -8,8 +8,13 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Calendar, Clock } from "lucide-react";
 import EventNewletter from "@/components/EventNewsletter";
+import { useFormContext } from '@/components/forms/FormProvider';
+
 
 const Events = () => {
+
+   const { openProposeEventForm } = useFormContext();
+
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -316,7 +321,9 @@ const Events = () => {
                   <p className="text-gray-600 dark:text-gray-300 mb-6">
                     Are you an expert in a tech-related field? Share your knowledge by hosting a workshop, webinar, or talk for the Thrive Link community.
                   </p>
-                  <Button className="bg-thrive-blue hover:bg-blue-700">Propose an Event</Button>
+                  <Button 
+                  onClick={openProposeEventForm}
+                  className="bg-thrive-blue hover:bg-blue-700">Propose an Event</Button>
                 </div>
               </div>
             </div>

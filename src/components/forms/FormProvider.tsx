@@ -4,9 +4,11 @@ import JoinCommunityForm from "./JoinCommunityForm"
 import VolunteerForm from "./VolunteerForm"
 import EmailPreview from "./EmailPreview"
 import WelcomeEmailTemplate from "../emails/WelcomeEmailTemplate"
+import ProposeEventForm from "./ProposeEventForm"
 
 interface FormContextType {
   openJoinCommunityForm: () => void
+  openProposeEventForm?: () => void
   openVolunteerForm: () => void
   openWelcomeEmailPreview: () => void
 }
@@ -27,11 +29,15 @@ interface FormProviderProps {
 
 export const FormProvider = ({ children }: FormProviderProps) => {
   const [joinCommunityFormOpen, setJoinCommunityFormOpen] = useState(false)
+  const [proposeEventFormOpen, setProposeEventFormOpen] = useState(false)
   const [volunteerFormOpen, setVolunteerFormOpen] = useState(false)
   const [welcomeEmailPreviewOpen, setWelcomeEmailPreviewOpen] = useState(false)
 
   const openJoinCommunityForm = () => setJoinCommunityFormOpen(true)
   const closeJoinCommunityForm = () => setJoinCommunityFormOpen(false)
+
+  const openProposeEventForm = () => setProposeEventFormOpen(true)
+  const closeProposeEventForm = () => setProposeEventFormOpen(false)
 
   const openVolunteerForm = () => setVolunteerFormOpen(true)
   const closeVolunteerForm = () => setVolunteerFormOpen(false)
@@ -43,6 +49,7 @@ export const FormProvider = ({ children }: FormProviderProps) => {
     <FormContext.Provider
       value={{
         openJoinCommunityForm,
+        openProposeEventForm,
         openVolunteerForm,
         openWelcomeEmailPreview
       }}
@@ -51,6 +58,10 @@ export const FormProvider = ({ children }: FormProviderProps) => {
       <JoinCommunityForm 
         isOpen={joinCommunityFormOpen} 
         onClose={closeJoinCommunityForm} 
+      />
+      <ProposeEventForm 
+        isOpen={proposeEventFormOpen} 
+        onClose={closeProposeEventForm} 
       />
       <VolunteerForm 
         isOpen={volunteerFormOpen} 
