@@ -288,6 +288,55 @@ const Community = () => {
                   </div>
                 </CardContent>
               </Card>
+
+               <Card className="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 shadow-md hover:shadow-lg transition-shadow duration-300">
+                <CardContent className="p-6">
+                  <div className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg w-12 h-12 flex items-center justify-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 text-thrive-blue">
+                      <path d="m21.39 6.91-8.24 8.22a3 3 0 0 1-4.24 0l-8.24-8.22"></path>
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">Graphic Design</h3>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4">
+                    For creatives crafting visually compelling, impactful, and brand-aligned designs across print and digital media.
+                  </p>
+                  <div className="mt-auto pt-4">
+                    <Button  className="w-full bg-blue-700 hover:bg-blue-600">Join Group</Button>
+                  </div>
+                </CardContent>
+              </Card>
+
+                             <Card className="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 shadow-md hover:shadow-lg transition-shadow duration-300">
+                <CardContent className="p-6">
+                  <div className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg w-12 h-12 flex items-center justify-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 text-thrive-blue">
+                      <path d="m21.39 6.91-8.24 8.22a3 3 0 0 1-4.24 0l-8.24-8.22"></path>
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">Content Writing</h3>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4">
+                    For wordsmiths shaping clear, engaging, and persuasive content that informs, inspires, and converts.                  </p>
+                  <div className="mt-auto pt-4">
+                    <Button  className="w-full bg-blue-700 hover:bg-blue-600">Join Group</Button>
+                  </div>
+                </CardContent>
+              </Card>
+
+                             <Card className="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 shadow-md hover:shadow-lg transition-shadow duration-300">
+                <CardContent className="p-6">
+                  <div className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg w-12 h-12 flex items-center justify-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 text-thrive-blue">
+                      <path d="m21.39 6.91-8.24 8.22a3 3 0 0 1-4.24 0l-8.24-8.22"></path>
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">Video Editing</h3>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4">
+                    For storytellers transforming raw footage into polished, dynamic videos that captivate and communicate with clarity.                  </p>
+                  <div className="mt-auto pt-4">
+                    <Button  className="w-full bg-blue-700 hover:bg-blue-600">Join Group</Button>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
