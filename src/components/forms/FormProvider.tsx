@@ -5,6 +5,11 @@ import VolunteerForm from "./VolunteerForm"
 import EmailPreview from "./EmailPreview"
 import WelcomeEmailTemplate from "../emails/WelcomeEmailTemplate"
 import ProposeEventForm from "./ProposeEventForm"
+import TestimonialSubmissionForm from "./TestimonialSubmissionForm "
+import VideoTestimonialUploadModal from "./VideoTestimonialUploadModal"
+import ArticleSubmissionModal from "./ArticleSubmissionModal"
+import CareerSupportForm from "./CareerSupportForm"
+import MentorshipApplicationForm from "./MentorshipApplicationForm"
 
 
 interface FormContextType {
@@ -12,6 +17,11 @@ interface FormContextType {
   openProposeEventForm?: () => void
   openVolunteerForm: () => void
   openWelcomeEmailPreview: () => void
+  openTestimonialSubmissionForm?: () => void
+  openVideoTestimonialUploadModal?: () => void
+  openArticleSubmissionModal?: () => void
+  openCareerSupportForm?: () => void
+  openMentorshipApplicationForm?: () => void
 }
 
 const FormContext = createContext<FormContextType | undefined>(undefined)
@@ -33,6 +43,13 @@ export const FormProvider = ({ children }: FormProviderProps) => {
   const [proposeEventFormOpen, setProposeEventFormOpen] = useState(false)
   const [volunteerFormOpen, setVolunteerFormOpen] = useState(false)
   const [welcomeEmailPreviewOpen, setWelcomeEmailPreviewOpen] = useState(false)
+  const [testimonialSubmissionFormOpen, setTestimonialSubmissionFormOpen] = useState(false)
+  const [videoTestimonialUploadModalOpen, setVideoTestimonialUploadModalOpen] = useState(false)
+  const [articleSubmissionModalOpen, setArticleSubmissionModalOpen] = useState(false)
+  const [careerSupportFormOpen, setCareerSupportFormOpen] = useState(false)
+  const [mentorshipApplicationFormOpen, setMentorshipApplicationFormOpen] = useState(false)
+
+
 
   const openJoinCommunityForm = () => setJoinCommunityFormOpen(true)
   const closeJoinCommunityForm = () => setJoinCommunityFormOpen(false)
@@ -46,6 +63,21 @@ export const FormProvider = ({ children }: FormProviderProps) => {
   const openWelcomeEmailPreview = () => setWelcomeEmailPreviewOpen(true)
   const closeWelcomeEmailPreview = () => setWelcomeEmailPreviewOpen(false)
 
+  const openTestimonialSubmissionForm = () => setTestimonialSubmissionFormOpen(true)
+  const closeTestimonialSubmissionForm = () => setTestimonialSubmissionFormOpen(false)
+
+  const openVideoTestimonialUploadModal = () => setVideoTestimonialUploadModalOpen(true)
+  const closeVideoTestimonialUploadModal = () => setVideoTestimonialUploadModalOpen(false)
+
+  const openArticleSubmissionModal = () => setArticleSubmissionModalOpen(true)
+  const closeArticleSubmissionModal = () => setArticleSubmissionModalOpen(false)
+
+  const openCareerSupportForm = () => setCareerSupportFormOpen(true)
+  const closeCareerSupportForm = () => setCareerSupportFormOpen(false)
+
+  const openMentorshipApplicationForm = () => setMentorshipApplicationFormOpen(true)
+  const closeMentorshipApplicationForm = () => setMentorshipApplicationFormOpen(false)
+
   
 
   return (
@@ -55,6 +87,11 @@ export const FormProvider = ({ children }: FormProviderProps) => {
         openProposeEventForm,
         openVolunteerForm,
         openWelcomeEmailPreview,
+        openTestimonialSubmissionForm,
+        openVideoTestimonialUploadModal,
+        openArticleSubmissionModal,
+        openCareerSupportForm,
+        openMentorshipApplicationForm,
       }}
     >
       {children}
@@ -75,6 +112,30 @@ export const FormProvider = ({ children }: FormProviderProps) => {
         onClose={closeWelcomeEmailPreview}
         subject="🎉 Welcome to Thrive Link – Let's Grow Together!"
         emailComponent={<WelcomeEmailTemplate firstName="John" />}
+      />
+
+      <TestimonialSubmissionForm 
+        isOpen={testimonialSubmissionFormOpen} 
+        onClose={closeTestimonialSubmissionForm} 
+      />
+
+      <VideoTestimonialUploadModal 
+        isOpen={videoTestimonialUploadModalOpen} 
+        onClose={closeVideoTestimonialUploadModal} 
+      />
+
+      <ArticleSubmissionModal 
+        isOpen={articleSubmissionModalOpen} 
+        onClose={closeArticleSubmissionModal} 
+      />
+
+      <CareerSupportForm 
+        isOpen={careerSupportFormOpen} 
+        onClose={closeCareerSupportForm} 
+      />
+      <MentorshipApplicationForm 
+        isOpen={mentorshipApplicationFormOpen} 
+        onClose={closeMentorshipApplicationForm} 
       />
     </FormContext.Provider>
   )

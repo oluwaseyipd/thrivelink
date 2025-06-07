@@ -17,6 +17,8 @@ const Testimonials = () => {
 
   const [filter, setFilter] = useState("all");
     const { openJoinCommunityForm } = useFormContext();
+    const {openTestimonialSubmissionForm} = useFormContext();
+  const { openVideoTestimonialUploadModal } = useFormContext();
   
 
   const testimonials = [
@@ -311,10 +313,14 @@ const Testimonials = () => {
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="bg-thrive-blue hover:bg-blue-700">
+                <Button size="lg" 
+                onClick={openTestimonialSubmissionForm}
+                className="bg-thrive-blue hover:bg-blue-700">
                   Submit Written Testimonial
                 </Button>
-                <Button size="lg" variant="outline">
+                <Button size="lg" 
+                onClick={openVideoTestimonialUploadModal}
+                variant="outline">
                   Upload Video Testimonial
                 </Button>
               </div>

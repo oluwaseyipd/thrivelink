@@ -12,7 +12,7 @@ import { Briefcase, GraduationCap, Rocket, Users } from "lucide-react";
 
 const Programs = () => {
 
-  const { openJoinCommunityForm } = useFormContext();
+  const { openJoinCommunityForm, openCareerSupportForm, openMentorshipApplicationForm } = useFormContext();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -74,7 +74,9 @@ const Programs = () => {
                     Regular check-ins and progress tracking
                   </li>
                 </ul>
-                <Button size="lg" className="bg-thrive-blue hover:bg-blue-700">Apply for Mentorship</Button>
+                <Button size="lg" 
+                onClick={openMentorshipApplicationForm}
+                className="bg-thrive-blue hover:bg-blue-700">Apply for Mentorship</Button>
               </div>
               <div className="lg:w-1/2">
                 <div className="relative rounded-xl overflow-hidden shadow-xl">
@@ -172,7 +174,9 @@ const Programs = () => {
                     Job search strategies and networking opportunities
                   </li>
                 </ul>
-                <Button size="lg" className="bg-thrive-blue hover:bg-blue-700">Get Career Support</Button>
+                <Button size="lg" 
+                onClick={openCareerSupportForm}
+                className="bg-thrive-blue hover:bg-blue-700">Get Career Support</Button>
               </div>
               <div className="lg:w-1/2">
                 <div className="relative rounded-xl overflow-hidden shadow-xl">

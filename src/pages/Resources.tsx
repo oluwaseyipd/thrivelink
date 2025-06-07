@@ -8,6 +8,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { BookOpen, Search, BookOpenCheck, GraduationCap, Briefcase } from "lucide-react";
+import { useFormContext } from '@/components/forms/FormProvider';
+
 
 const Resources = () => {
   useEffect(() => {
@@ -16,6 +18,7 @@ const Resources = () => {
 
   const [searchQuery, setSearchQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("all");
+  const { openArticleSubmissionModal } = useFormContext();
 
   const resources = [
     {
@@ -246,7 +249,9 @@ const Resources = () => {
                       Publish original research or case studies
                     </li>
                   </ul>
-                  <Button className="bg-thrive-blue hover:bg-blue-700">Submit an Article</Button>
+                  <Button 
+                  onClick={openArticleSubmissionModal}
+                  className="bg-thrive-blue hover:bg-blue-700">Submit an Article</Button>
                 </div>
                 <div className="md:w-1/2 h-80 md:h-auto">
                   <img 
