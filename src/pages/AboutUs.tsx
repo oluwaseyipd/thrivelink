@@ -29,7 +29,7 @@ const teammembers = [
     id: 2,
     image:team1 ,
     name: "Kolade Favour",
-    post: "Social Manager",
+    post: "Social Media Manager",
     description: "Machine Learning engineer focused on building model that cause transformation.",
       twitter: "https://x.com/favourrr_____",
       instagram: "https://www.instagram.com/_thefavouredfavour",
